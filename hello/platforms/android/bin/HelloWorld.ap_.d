@@ -21,12 +21,17 @@ F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\img \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\index.html \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\js \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\phonegap.js \
+F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\plugins \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\res \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\spec \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\spec.html \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\css\index.css \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\img\logo.png \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\js\index.js \
+F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\js\oauth.js \
+F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\plugins\com.example.echo \
+F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\plugins\com.example.echo\www \
+F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\plugins\com.example.echo\www\echo.js \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\res\icon \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\res\screen \
 F:\Freelance\BCT\app\phonegaptest\hello\platforms\android\assets\www\res\icon\android \

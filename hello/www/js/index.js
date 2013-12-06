@@ -20,6 +20,7 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        alert( 'init' );
     },
     // Bind Event Listeners
     //
@@ -34,6 +35,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        app.addEcho();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -45,5 +47,12 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    addEcho: function(){
+        var e = document.getElementById( 'mooo' );
+        e.innerHTML="farts";
+        var success = function(){ alert( 'YESSS' ); }
+        var error = function(){ alert( 'SHIT...' ); }
+        echo.createEvent(success, error, 'fatman in an overcoat');
     }
 };
