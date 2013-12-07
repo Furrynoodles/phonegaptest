@@ -1,4 +1,9 @@
 package com.example.myplugin;
+
+import twitter4j.*;
+import twitter4j.conf.*;
+import java.util.*;
+import java.lang.reflect.*;
  
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -14,10 +19,27 @@ public class Echo extends CordovaPlugin {
     throws JSONException
     {
         if( ACTION_ECHO.equals( action ) ){
-            callbackContext.success();
+            callbackContext.success( twitter() );
             return true;
         }
         callbackContext.error("Invalid action");
         return false;
+    }
+
+    private String twitter(){
+      TwitterFactory tf = TwitterFactory.getSingleton();
+      Twitter twitter = tf.getInstance();
+      String methods = "methods";
+      Method[] m = twitter.getClass().getMethods();
+      try{
+        List<Status> statuses = twitter.getHomeTimeline();
+        for( Status status : statuses ){
+          methods += ", ";
+          methods += status.getText();
+        }
+        return methods;
+      }catch( Exception e ){
+        return e.getMessage();
+      }
     }
 }

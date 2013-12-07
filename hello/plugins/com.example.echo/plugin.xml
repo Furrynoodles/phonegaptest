@@ -21,6 +21,6 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/Echo.java" target-dir="src/furry/noodle/echo" />      
+        <source-file src="src/android/Echo.java" target-dir="src/com/example/myplugin" />      
      </platform>          
 </plugin>

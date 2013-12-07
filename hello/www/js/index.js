@@ -50,7 +50,7 @@ var app = {
     addEcho: function(){
         var e = document.getElementById( 'mooo' );
         e.innerHTML="farts";
-        var success = function(){ alert( 'YESSS' ); }
+        var success = function( msg ){ e.innerHTML=msg; }
         var error = function(){ alert( 'SHIT...' ); }
         echo.createEvent(success, error, 'fatman in an overcoat');
     }
