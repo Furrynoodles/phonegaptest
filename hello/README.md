@@ -10,3 +10,6 @@
 
    and:<br/>
    `<preference name="SplashScreenDelay" value="2000"/>`
+
+  Also note that files in the folder www/res/drawable/ are not copied into the android build automatically.
+  You'll need to manual copy them into platforms/android/res/drawable/
