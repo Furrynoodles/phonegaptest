@@ -27,8 +27,7 @@ public class Echo extends CordovaPlugin {
     }
 
     private String twitter(){
-      TwitterFactory tf = TwitterFactory.getSingleton();
-      Twitter twitter = tf.getInstance();
+      Twitter twitter = TwitterFactory.getSingleton();
       String methods = "methods";
       Method[] m = twitter.getClass().getMethods();
       try{
