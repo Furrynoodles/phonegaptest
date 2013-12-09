@@ -35,6 +35,7 @@ var app = {
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
         app.addEcho();
+        app.shit();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -53,5 +54,11 @@ var app = {
         var success = function( msg ){ e.innerHTML=msg; }
         var error = function(){ alert( 'SHIT...' ); }
         echo.createEvent(success, error, 'fatman in an overcoat');
+    },
+    shit: function(){
+        alert('Get ready for shit!');
+        alert(echo);
+        alert(rss);
+        alert('unshited!');
     }
 };
