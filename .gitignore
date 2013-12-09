@@ -2,3 +2,4 @@
 *.swp
 *.swo
 hello/platforms/*
+javac_log.txt
