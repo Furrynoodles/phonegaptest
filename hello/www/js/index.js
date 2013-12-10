@@ -34,8 +34,8 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         //app.receivedEvent('deviceready');
-        app.addEcho();
-        app.shit();
+        app.addTwitter();
+        app.addRss();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -48,17 +48,23 @@ var app = {
 
         console.log('Received Event: ' + id);
     },
-    addEcho: function(){
-        var e = document.getElementById( 'mooo' );
+    addTwitter: function(){
+        var e = document.getElementById( 'twitterfeed' );
         e.innerHTML="farts";
         var success = function( msg ){ e.innerHTML=msg; }
         var error = function(){ alert( 'SHIT...' ); }
-        echo.createEvent(success, error, 'fatman in an overcoat');
+        twitter.createEvent(success, error, 'fatman in an overcoat');
     },
-    shit: function(){
+    addRss: function(){
         alert('Get ready for shit!');
-        alert(echo);
+        alert(twitter);
         alert(rss);
         alert('unshited!');
+
+        var e = document.getElementById( 'newsfeed' );
+        e.innerHTML="farts";
+        var success = function( msg ){ e.innerHTML=msg; }
+        var error = function(){ alert( 'SHIT...' ); }
+        rss.createEvent(success, error, 'fatman in an overcoat');
     }
 };
