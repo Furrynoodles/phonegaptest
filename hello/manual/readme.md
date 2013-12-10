@@ -7,7 +7,8 @@ As in some files that need to be *manually* moved into the generated platform/an
 Don't forget to fill in the credentials
 
 
-##twitter4j-core-3.0.5.jar
--> platform/android/lib/twitter4j-core-3.0.5.jar
+##Required Java libraries
 
-This is required for the plugin (currently, and poorly, named 'Echo') to work.
+jdom-1.0.jar, rome-1.0.jar, twitter4j-core-3.0.5.jar
+<br/>
+-> platform/android/lib/
