@@ -56,10 +56,20 @@ var app = {
         twitter.createEvent(success, error, 'fatman in an overcoat');
     },
     addRss: function(){
-        var e = document.getElementById( 'newsfeed' );
-        e.innerHTML="loading rss...";
-        var success = function( msg ){ alert( msg ); }
-        var error = function( msg ){ alert( msg ); }
-        rss.createEvent( success, error, 'fatman in an overcoat');
+      var e = $( '#newsfeed' );
+      e.html( "Loading RSS..." );
+      rss.createEvent( app.onRssSuccess, app.onRssError, 'http://www.bykercommunitytrust.org/rss.xml');
+    },
+    onRssSuccess: function( data ){
+      var json = $.parseJSON( data );
+      ui.rss.render( json );
+    },
+    onRssError: function( msg ){
+      alert( msg );
     }
 };
+
+var runTest = function(){
+  app.onRssSuccess( '[{"title":"My Title", "description":"My Desc", "pubDate":"Today"}, {"title":"My Title2", "description":"My Desc", "pubDate":"Today"}]' );
+}
+//runTest();

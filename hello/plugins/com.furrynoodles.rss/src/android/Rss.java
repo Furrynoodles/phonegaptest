@@ -16,12 +16,18 @@ public class Rss extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext)
     throws JSONException
     {
+      try{
         if( ACTION_ECHO.equals( action ) ){
-            RomeRss rome = new RomeRss( "http://www.thetimes.co.uk/tto/news/rss" );
+            JSONObject argObj = args.getJSONObject( 0 );
+            RomeRss rome = new RomeRss( argObj.getString( "url" ) );
             callbackContext.success( rome.getRss() );
             return true;
         }
         callbackContext.error("Invalid action");
         return false;
+      }catch( Exception e ){
+        callbackContext.error(e.getMessage());
+        return false;
+      }
     }
 }
