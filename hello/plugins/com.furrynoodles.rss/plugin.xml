@@ -22,5 +22,6 @@
         </config-file>
 
         <source-file src="src/android/Rss.java" target-dir="src/com/furrynoodles/rss" />      
+        <source-file src="src/android/RomeRss.java" target-dir="src/com/furrynoodles/rss" />      
      </platform>          
 </plugin>
