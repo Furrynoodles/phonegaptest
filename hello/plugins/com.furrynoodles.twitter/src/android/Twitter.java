@@ -33,7 +33,7 @@ public class Twitter extends CordovaPlugin {
       try{
         List<Status> statuses = twitter.getHomeTimeline();
 
-        String statusJson = "ballsack";
+        String statusJson = "Twitter";
 
         statusJson = twitter4j.json.DataObjectFactory.getRawJSON(statuses);
         
