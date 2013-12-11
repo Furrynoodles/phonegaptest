@@ -31,6 +31,8 @@ Backbone.sync = function(){};
 
   var FeedsView = Backbone.View.extend({
     initialize: function(){
+      this.$display = $('<ul/>');
+      this.$el.append(this.$display);
       this.render();
       this.listenTo( this.collection, 'add', this.addFeedItem );
     },
@@ -39,7 +41,7 @@ Backbone.sync = function(){};
     render: function(){
     },
     addFeedItem: function( item ){
-      this.$el.append( '<li>' + item.get( 'title' ) + '</li>' );
+      this.$display.append( '<li>' + item.get( 'title' ) + '</li>' );
     }
   });
 

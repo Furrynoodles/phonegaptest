@@ -37,7 +37,5 @@
     <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />
     <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
     <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />
-    <preference name="SplashScreen" value="splash"/>
-    <preference name="SplashScreenDelay" value="2000"/>
     <access origin="http://127.0.0.1*" />
 </widget>
