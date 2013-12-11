@@ -1,4 +1,3 @@
-alert("rss.js exists");
 var rss = {
     createEvent: function(successCallback, errorCallback, message) {
         cordova.exec(

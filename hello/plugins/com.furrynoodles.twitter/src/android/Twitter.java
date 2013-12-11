@@ -32,13 +32,20 @@ public class Twitter extends CordovaPlugin {
       Method[] m = twitter.getClass().getMethods();
       try{
         List<Status> statuses = twitter.getHomeTimeline();
-        for( Status status : statuses ){
-          methods += ", ";
-          methods += status.getText();
-        }
-        return methods;
+
+        String statusJson = "ballsack";
+
+        statusJson = twitter4j.json.DataObjectFactory.getRawJSON(statuses);
+        
+        /*for( Status status : statuses ){
+          //methods += ", ";
+         // methods += status.getText();
+          return twitter4j.json.DataObjectFactory.getRawJSON(status);
+        }*/
+        return statusJson;
+        //return methods;
       }catch( Exception e ){
-        return e.getMessage();
+        return e.getMessage(); 
       }
     }
 }
