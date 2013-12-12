@@ -1,3 +1,5 @@
+.app{
+}
 .feed
 {
 
@@ -22,18 +24,49 @@
     width:100%;
     height:100%;
     top: 0;
-    z-index: 1;
+    z-index: 101;
 }
 #head{
     position: relative;
 }
-#menu{
+#menu-trigger{
     position: absolute;
     top: 5px;
     right: 5px;
-    width: 20px;
-    height: 20px;
+    overflow:hidden;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     background: red;
     border-radius: 4px;
+}
+#menu{
+    position: absolute;
+    right: 0px;
+    width: 150px;
+    overflow: hidden;
+    top: 60px;
+    z-index: 1;
+}
+#menu-items{
+    position: relative;
+    right: -150px;
+    width: 150px;
+    background-color: #ccf;
+    padding: 20px 10px;
+    list-style:none;
+}
+#menu-items.on{
+    right: 0px;
+}
+.screen{
+    position:absolute;
+    top:80px;
+    background-color: #fff;
+    width:100%;
+    overflow-y: scroll;
+    height: 300px;
+}
+#contact{
+    
 }

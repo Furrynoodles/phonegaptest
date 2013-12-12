@@ -41,7 +41,8 @@ Backbone.sync = function(){};
     render: function(){
     },
     addFeedItem: function( item ){
-      this.$display.append( '<li>' + item.get( 'title' ) + '</li>' );
+      //var template = '<li article-id="<%=id>"><%=title></li>';
+      this.$display.append( '<li detail-id="'+item.get( 'id' )+'">' + item.get( 'title' ) + '</li>' );
     }
   });
 
