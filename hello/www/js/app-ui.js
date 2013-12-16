@@ -1,6 +1,16 @@
 (function(){
-	//alert('app');
+
+
+  var head = $( '#head' );
+
 	var screens = $( '#screens' );
+
+  var window = $( document );
+  $( '.screen' ).height( window.height() - head.outerHeight() );
+
+  var menu = $( '#menu' );
+  $( '#menu' ).hide();
+
 
 	var menuOn = false;
 	$('#menu-trigger')
@@ -19,11 +29,16 @@
 				changeScreen( targetScreenId );
 				toggleMenu();
 			} )
+
 	function toggleMenu(){
-		if(menuOn= !menuOn)
-			$("#menu-items").animate({right:0});
-		else
-			$("#menu-items").animate({right:-150});
+    var menu = $("#menu");
+    var items = $("#menu-items");
+		if( menuOn= !menuOn ){
+      menu.show();
+			items.animate({ left: 0 });
+		}else{
+			items.animate({ left: items.outerWidth() }, function(){ menu.hide() });
+    }
 	}
 
 	function changeScreen( targetScreenId ){

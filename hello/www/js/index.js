@@ -52,7 +52,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
+        //console.log('Received Event: ' + id);
     },
     addTwitter: function(){
         $( '#newsfeed' ).html( 'Loading tweets...' );
@@ -80,13 +80,13 @@ var app = {
       rss.createEvent( app.onRssSuccess, app.onRssError, 'http://www.bykercommunitytrust.org/rss.xml');
     },
     onRssSuccess: function( data ){
-    rssJson = $.parseJSON( data );
+      rssJson = $.parseJSON( data );
     
-    for (var i=0; i<rssJson.length; i++)
-    {
-        rssJson[i].id=i;
-        console.log(rssJson[i]);
-    }
+      for (var i=0; i<rssJson.length; i++)
+      {
+          rssJson[i].id=i;
+          //console.log(rssJson[i]);
+      }
       ui.rss.render( rssJson );
     },
     onRssError: function( msg ){

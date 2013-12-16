@@ -7,10 +7,12 @@
 }
 h1{
     font-family:'VAGRoundedBT-Regular';
+    font-size: 21px;
 }
 .app{
   color: #333;
   font-size: 14px;
+  -webkit-user-select: none;
 }
 #splash
 {
@@ -31,33 +33,29 @@ h1{
 }
 #menu-trigger{
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 0;
+    right: 0;
     overflow:hidden;
-    width: 44px;
-    height: 43px;
+    width: 56px;
+    height: 55px;
     cursor: pointer;
-    background: #DD5426;
-    border-radius: 4px;
-    border: 1px solid #C54920;
-    border-top-color:: #C54920;
-    border-bottom-color: #FF7D52;
+    border-left: 1px solid #D44B1E;
 }
 #menu{
     position: absolute;
     right: 0px;
-    width: 150px;
     overflow: hidden;
     top: 60px;
     z-index: 1;
     font-size: 21px;
     margin-top: -7px;
     z-index: 109;
+    width: 100%;
 }
 #menu-items{
     position: relative;
-    right: -150px;
-    width: 150px;
+    left: 100%;
+    width: 100%;
     background-color: #ccf;
     list-style:none;
     background: #4FA5BE;
@@ -78,6 +76,8 @@ h1{
     overflow-y: scroll;
     height: 300px;
     line-height: 1.4;
+    background: #3E6086;
+    background-image: url('../img/background_checked.gif');
 }
 .screen ul
 {
@@ -87,9 +87,9 @@ h1{
 .screen ul li
 {
     list-style: none;
-    margin:0;
+    margin: 0 0 1px 0;
     padding: 13px 11px 13px;
-    border-bottom: 1px solid #aaa;
+    background: #fff;
 }
 #contact{
     
