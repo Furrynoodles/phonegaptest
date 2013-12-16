@@ -46,7 +46,13 @@
 	function openDetailScreen(target){
 		var id = $(target).attr("detail-id");
 
-		$("#detail").html(rssJson[id].title);
+		var detailHtml = "";
+		detailHtml += "<h1>"+rssJson[id].title+"</h1>";
+		detailHtml += "<p>"+rssJson[id].description+"</p>";
+		detailHtml += "<p>"+rssJson[id].pubDate+"</p>";
+		detailHtml += "<p>"+rssJson[id].link+"</p>";
+		detailHtml += "";
+		$("#detail").html(detailHtml);
 		//changeScreen("detail");
 		var screen = $( '#detail' );
 		screens.append( screen );
