@@ -41,7 +41,8 @@ var app = {
         app.addRss();
     },
     fadeAwaySplash: function() {
-        $("#splash").delay(1000).fadeOut(1000);
+      setTimeout( function(){ $("#splash").addClass( 'off' ); }, 1 );
+      setTimeout( function(){ $("#splash").hide(); }, 1500 );
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

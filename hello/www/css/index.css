@@ -27,6 +27,17 @@ h1{
     height:100%;
     top: 0;
     z-index: 101;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+}
+#splash.off{
+  opacity: 0;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
 }
 #splash #logo
 {
@@ -65,45 +76,67 @@ h1{
     right: 0px;
     overflow: hidden;
     top: 61px;
-    z-index: 1;
+    z-index: 901;
     font-size: 21px;
     margin-top: -7px;
-    z-index: 109;
     width: 0%;
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
 }
 #menu.on{
     width: 100%;
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
 }
 #menu-items{
     position: relative;
-    left: 100%;
+    left: 0;
     width: 100%;
     background-color: #ccf;
     list-style:none;
     background: #4FA5BE;
     padding: 20px 24px 22px;
     margin: 2px 0px;
-    transition: left 1s;
-    -webkit-transition: left 1s;
-}
-#menu.on #menu-items{
-    left: 0%;
-    transition: left 1s;
-    -webkit-transition: left 1s;
+    min-width: 200px;
 }
 #menu-items li{
   padding: 8px 0;
 }
+.screens{
+    background-image: url('../img/background_checked.gif');
+  transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0,0,0);
+}
 .screen{
     position:absolute;
     top: 56px;
-    background-color: #fff;
     width:100%;
     overflow-y: scroll;
     height: 300px;
     line-height: 1.5;
-    background: #3E6086;
+    /* background: #3E6086; */
     background-image: url('../img/background_checked.gif');
+}
+.mdrcsstransitions .screen.on{
+  z-index: 101;
+  left: 0;
+  transition: left 0.5s;
+  -webkit-transition: left 0.5s;
+}
+.mdrcsstransitions .screen{
+  z-index: 100;
+  left: 100%;
+  transition: left 0.5s;
+  -webkit-transition: left 0.5s;
+}
+.mdrcsstransitions .screen.pushed{
+  left: -100%;
+  transition: left 0.5s;
+  -webkit-transition: left 0.5s;
 }
 .screen ul
 {
