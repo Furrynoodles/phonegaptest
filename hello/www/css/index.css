@@ -7,7 +7,7 @@
 }
 h1{
     font-family:'VAGRoundedBT-Regular';
-    font-size: 21px;
+    font-size: 22px;
     margin: 0;
 }
 .app, .app:focus, .app:focus:active{
@@ -238,6 +238,12 @@ h1{
 
 @media (max-device-width: 1080px){
   .app{
-      font-size: 21px;
+      font-size: 22px;
+  }
+  h1{
+      font-size: 57px;
+  }
+  #menu.on{
+    width: 200px;
   }
 }
