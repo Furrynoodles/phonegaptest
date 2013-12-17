@@ -86,6 +86,7 @@ var app = {
           rssJson[i].id=i;
       }
       ui.rss.render( rssJson );
+      //window.open("http://www.google.com", '_blank', 'location=yes' );
     },
     onRssError: function( msg ){
       alert( msg );

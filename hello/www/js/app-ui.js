@@ -1,14 +1,14 @@
 (function(){
 
-	new iScroll( 'detail' );
-	new iScroll( 'twitterfeed' );
+	var detailIScroll = new iScroll( 'detail' );
+	var twitterIScroll = new iScroll( 'twitterfeed' );
 
   var head = $( '#head' );
 
 	var screens = $( '#screens' );
 
-  var window = $( document );
-  $( '.screen' ).height( window.height() - head.outerHeight() );
+  var doc = $( document );
+  $( '.screen' ).height( doc.height() - head.outerHeight() );
 
   var menu = $( '#menu' );
   $( '#menu' ).hide();
@@ -71,22 +71,20 @@
 		var id = $(target).attr("detail-id");
 
 	    var detailScreen = $("#detail .inner");
+		rssJson[ id ].description = rssJson[ id ].description.replace("/modules/file/icons/application-pdf.png", "img/application-pdf.png");
 		detailScreen.html( newsDetailTemplate( $.extend( dataDefaults, rssJson[ id ] ) ) );
+
+		detailScreen.on('click', 'a', function( event ){
+			event.preventDefault();
+			var $target = $(event.currentTarget);
+			var ref = window.open( $target.attr('href'), '_system', 'location=yes' );
+		});
+
+		detailIScroll.refresh();
+		var img = detailScreen.find('img').on( 'load', function(){
+			detailIScroll.refresh();
+		} ).load();
 	    //test
-	    var img = new Image();
-	    img.onload = function(){
-	      var $img = $( '<img src="'+img.src+'" />' );
-	      $img.css({ left: 0 });
-	      $img.animate({ left: (img.width - detailScreen.outerWidth() ) / -2 });
-	      detailScreen
-	        .find( '.image' )
-	          .addClass( 'with-image' )
-	          .append('<div class="image-backing"></div>')
-	          .append( $img )
-	          .animate({ height: img.height }, 500 );
-	    };
-	    //img.src = "http://www.bykercommunitytrust.org/sites/default/files/styles/large/public/field/image/Welfare%20Reform%20Video.jpg";
-	    img.src = "http://www.bykercommunitytrust.org/sites/default/files/styles/large/public/field/image/Oscar-statuette%5B1%5D.jpg";
 
 		//changeScreen("detail");
 		var screen = $( '#detail' );
@@ -98,6 +96,7 @@
 
 		var oldScreen = $( '#newsfeed' );
 		oldScreen.animate({ left: -oldScreen.width() });
+
 	}
 	function closeDetailScreen()
 	{
