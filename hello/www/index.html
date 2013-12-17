@@ -42,10 +42,12 @@
         </script>
     </head>
     <body>
-        <div id="splash"></div>
+        <div id="splash">
+          <div id="logo"></div>
+        </div>
         <div class="app">
             <div id="head">
-                <span>FurryNoodles</span>
+                <span>BYKER</span>
                 <div id="menu-trigger" class="button"></div>
                 <div id="menu">
                     <ul id="menu-items">
@@ -63,10 +65,36 @@
             <div id="screens">
                 <div id="detail" class="screen"></div>
                 <div id="contact" class="screen">Contact form and shit</div>
-                <div id="twitterfeed" class="feed screen">empty</div>
+                <div id="twitterfeed" class="feed screen"><ul></ul></div>
                 <div id="newsfeed" class="feed screen"></div>
             </div>
         </div>
+
+        <script id="twitter-item-template" type="text/template">
+          <li>
+            <span class="title"><%= text %></span>
+          </li>
+        </script>
+
+        <script id="news-item-template" type="text/template">
+          <li detail-id="<%= id %>">
+            <div class="image"></div>
+            <span class="title"><%= title  %></span>
+            <div class="icon chevron"></div>
+          </li>
+        </script>
+
+        <script id="news-detail-template" type="text/template">
+        <div class="news-detail">
+          <div data-link="<%= link %>">
+            <h1><%= title %></h1>
+            <p class="date"><%= pubDate %></p>
+          </div>
+          <div class="image"></div>
+          <div class="description"><%= description %></div>
+        </div>
+        </script>
+
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/underscore-min.js"></script>

@@ -1,6 +1,17 @@
 (function(){
-	//alert('app');
+
+
+  var head = $( '#head' );
+
 	var screens = $( '#screens' );
+
+  var window = $( document );
+  $( '.screen' ).height( window.height() - head.outerHeight() );
+
+  var menu = $( '#menu' );
+  $( '#menu' ).hide();
+
+  var newsDetailTemplate = _.template( $( '#news-detail-template' ).html() );
 
 	var menuOn = false;
 	$('#menu-trigger')
@@ -23,11 +34,16 @@
 				changeScreen( targetScreenId );
 				toggleMenu();
 			} )
+
 	function toggleMenu(){
-		if(menuOn= !menuOn)
-			$("#menu-items").animate({right:0});
-		else
-			$("#menu-items").animate({right:-150});
+    var menu = $("#menu");
+    var items = $("#menu-items");
+		if( menuOn= !menuOn ){
+      menu.show();
+			items.animate({ left: 0 });
+		}else{
+			items.animate({ left: items.outerWidth() }, function(){ menu.hide() });
+    }
 	}
 
 	function changeScreen( targetScreenId ){
@@ -43,23 +59,32 @@
 
 	$('#newsfeed')
 		.on('click', 'li', function( event ){
-			//alert($(event.target).attr("article-id"));
-			openDetailScreen(event.target);
+			openDetailScreen(event.currentTarget);
 	} );
 
 	var backFunction;
 	function openDetailScreen(target){
+		backFunction = closeDetailScreen;
 		var id = $(target).attr("detail-id");
 
-		backFunction = closeDetailScreen;
+	    var detailScreen = $("#detail");
+			detailScreen.html( newsDetailTemplate( rssJson[ id ] ) );
+	    //test
+	    var img = new Image();
+	    img.onload = function(){
+	      var $img = $( '<img src="'+img.src+'" />' );
+	      $img.css({ left: 0 });
+	      $img.animate({ left: (img.width - detailScreen.outerWidth() ) / -2 });
+	      detailScreen
+	        .find( '.image' )
+	          .addClass( 'with-image' )
+	          .append('<div class="image-backing"></div>')
+	          .append( $img )
+	          .animate({ height: img.height }, 500 );
+	    };
+	    //img.src = "http://www.bykercommunitytrust.org/sites/default/files/styles/large/public/field/image/Welfare%20Reform%20Video.jpg";
+	    img.src = "http://www.bykercommunitytrust.org/sites/default/files/styles/large/public/field/image/Oscar-statuette%5B1%5D.jpg";
 
-		var detailHtml = "";
-		detailHtml += "<h1>"+rssJson[id].title+"</h1>";
-		detailHtml += "<p>"+rssJson[id].description+"</p>";
-		detailHtml += "<p>"+rssJson[id].pubDate+"</p>";
-		detailHtml += "<p>"+rssJson[id].link+"</p>";
-		detailHtml += "";
-		$("#detail").html(detailHtml);
 		//changeScreen("detail");
 		var screen = $( '#detail' );
 		screens.append( screen );
