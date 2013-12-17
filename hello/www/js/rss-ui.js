@@ -41,7 +41,7 @@ Backbone.sync = function(){};
     render: function(){
     },
     addFeedItem: function( item ){
-      //var template = '<li article-id="<%=id>"><%=title></li>';
+      //this.$display.append( '<li detail-id="'+item.get( 'id' )+'">' + item.get( 'title' ) + '</li>' );
       this.$display.append( '<li detail-id="'+item.get( 'id' )+'">' + item.get( 'title' ) + '</li>' );
     }
   });
@@ -55,12 +55,6 @@ Backbone.sync = function(){};
   ui.rss = {};
 
   ui.rss.render = function( data ){
-    var out = '';
-    for( var prop in data[0] ){
-      out += ', '+prop;
-      out += ':'+data[0][prop];
-    }
-    //alert( out );
     _.each( data, function( item ){
       feeds.create(item);
     });

@@ -12,6 +12,10 @@
 		toggleMenu();
 	},false );
 
+	document.addEventListener("backbutton", function( event ){
+		back();
+	},false );
+
 		$( '#menu li' )
 			.on( 'click', function( event ){
 				var menuItem = $(event.target);
@@ -42,9 +46,12 @@
 			//alert($(event.target).attr("article-id"));
 			openDetailScreen(event.target);
 	} );
-	var history = [];
+
+	var backFunction;
 	function openDetailScreen(target){
 		var id = $(target).attr("detail-id");
+
+		backFunction = closeDetailScreen;
 
 		var detailHtml = "";
 		detailHtml += "<h1>"+rssJson[id].title+"</h1>";
@@ -83,7 +90,15 @@
 
 	function back()
 	{
-		closeDetailScreen();
+		if (backFunction)
+		{
+			backFunction();
+		}
+		else
+		{
+			navigator.app.exitApp();
+		}
+		backFunction = null;
 	}
 
 }) ();
