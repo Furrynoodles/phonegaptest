@@ -4,6 +4,8 @@ Backbone.sync = function(){};
 
 (function( ui ){
 
+  var newsItemTemplate = _.template( $( '#news-item-template' ).html() );
+
   var Feed = Backbone.Model.extend({
     defaults:{
       title: '',
@@ -41,8 +43,15 @@ Backbone.sync = function(){};
     render: function(){
     },
     addFeedItem: function( item ){
-      //var template = '<li article-id="<%=id>"><%=title></li>';
-      this.$display.append( '<li detail-id="'+item.get( 'id' )+'">' + item.get( 'title' ) + '</li>' );
+      var $item = $(newsItemTemplate( {
+        id: item.get( 'id' ),
+        title: item.get( 'title' )
+      }));
+      this.$display.append( $item );
+      var itemHeight = $item.outerHeight();
+      $item.find( '.image' ).height( itemHeight );
+      var $chevron = $item.find( '.chevron' );
+      $chevron.css( 'top', ( itemHeight - $chevron.height() ) / 2 );
     }
   });
 
