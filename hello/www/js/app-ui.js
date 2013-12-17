@@ -1,6 +1,5 @@
 (function(){
 
-
   var head = $( '#head' );
 
 	var screens = $( '#screens' );
@@ -9,7 +8,9 @@
   $( '.screen' ).height( window.height() - head.outerHeight() );
 
   var menu = $( '#menu' );
-  $( '#menu' ).hide();
+  //$( '#menu' ).hide();
+
+  var items = $("#menu-items");
 
   var newsDetailTemplate = _.template( $( '#news-detail-template' ).html() );
 
@@ -33,11 +34,14 @@
 				var targetScreenId = menuItem.attr('target-screen');
 				changeScreen( targetScreenId );
 				toggleMenu();
-			} )
+			} );
 
 	function toggleMenu(){
-    var menu = $("#menu");
-    var items = $("#menu-items");
+    if( Modernizr.csstransitions ){
+      menu.toggleClass( 'on' );
+      return;
+    }
+
 		if( menuOn= !menuOn ){
       menu.show();
 			items.animate({ left: 0 });
