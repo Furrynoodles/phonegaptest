@@ -1,5 +1,7 @@
 (function(){
 
+	new iScroll( 'detail' );
+	new iScroll( 'twitterfeed' );
 
   var head = $( '#head' );
 
@@ -47,7 +49,7 @@
 	}
 
 	function changeScreen( targetScreenId ){
-
+		
 		var screen = $( '#' + targetScreenId );
 		screens.append( screen );
 		screen.css({
@@ -63,12 +65,13 @@
 	} );
 
 	var backFunction;
+	var dataDefaults = {'title':'', 'link':'', 'pubDate':'', 'description':''};
 	function openDetailScreen(target){
 		backFunction = closeDetailScreen;
 		var id = $(target).attr("detail-id");
 
-	    var detailScreen = $("#detail");
-			detailScreen.html( newsDetailTemplate( rssJson[ id ] ) );
+	    var detailScreen = $("#detail .inner");
+		detailScreen.html( newsDetailTemplate( $.extend( dataDefaults, rssJson[ id ] ) ) );
 	    //test
 	    var img = new Image();
 	    img.onload = function(){
