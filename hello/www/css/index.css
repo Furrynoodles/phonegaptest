@@ -10,10 +10,12 @@ h1{
     font-size: 21px;
     margin: 0;
 }
-.app{
+.app, .app:focus, .app:focus:active{
   color: #333;
   font-size: 14px;
   -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
 }
 #splash
 {
@@ -67,6 +69,9 @@ h1{
     font-size: 21px;
     margin-top: -7px;
     z-index: 109;
+    width: 0%;
+}
+#menu.on{
     width: 100%;
 }
 #menu-items{
@@ -78,9 +83,13 @@ h1{
     background: #4FA5BE;
     padding: 20px 24px 22px;
     margin: 2px 0px;
+    transition: left 1s;
+    -webkit-transition: left 1s;
 }
-#menu-items.on{
-    right: 0px;
+#menu.on #menu-items{
+    left: 0%;
+    transition: left 1s;
+    -webkit-transition: left 1s;
 }
 #menu-items li{
   padding: 8px 0;
@@ -194,4 +203,10 @@ h1{
   padding-top: 8px;
   padding-bottom: 48px;
   margin-bottom: 2px;
+}
+
+@media (max-device-width: 1080px){
+  .app{
+      font-size: 21px;
+  }
 }

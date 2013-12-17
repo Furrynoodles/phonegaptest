@@ -3,15 +3,16 @@
 	var detailIScroll = new iScroll( 'detail' );
 	var twitterIScroll = new iScroll( 'twitterfeed' );
 
-  var head = $( '#head' );
-
+	var head = $( '#head' );
 	var screens = $( '#screens' );
 
   var doc = $( document );
   $( '.screen' ).height( doc.height() - head.outerHeight() );
 
   var menu = $( '#menu' );
-  $( '#menu' ).hide();
+  //$( '#menu' ).hide();
+
+  var items = $("#menu-items");
 
   var newsDetailTemplate = _.template( $( '#news-detail-template' ).html() );
 
@@ -35,11 +36,14 @@
 				var targetScreenId = menuItem.attr('target-screen');
 				changeScreen( targetScreenId );
 				toggleMenu();
-			} )
+			} );
 
 	function toggleMenu(){
-    var menu = $("#menu");
-    var items = $("#menu-items");
+    if( Modernizr.csstransitions ){
+      menu.toggleClass( 'on' );
+      return;
+    }
+
 		if( menuOn= !menuOn ){
       menu.show();
 			items.animate({ left: 0 });
@@ -71,7 +75,7 @@
 		var id = $(target).attr("detail-id");
 
 	    var detailScreen = $("#detail .inner");
-		rssJson[ id ].description = rssJson[ id ].description.replace("/modules/file/icons/application-pdf.png", "img/application-pdf.png");
+	    rssJson[ id ].description = rssJson[ id ].description.replace(new RegExp("/modules/file/icons/application-pdf.png", 'g'), "img/application-pdf.png");
 		detailScreen.html( newsDetailTemplate( $.extend( dataDefaults, rssJson[ id ] ) ) );
 
 		detailScreen.on('click', 'a', function( event ){
