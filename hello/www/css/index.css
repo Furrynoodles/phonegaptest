@@ -36,8 +36,6 @@ h1{
   opacity: 0;
   transition: all 1s;
   -webkit-transition: all 1s;
-  transform: translate3d(0,0,0);
-  -webkit-transform: translate3d(0,0,0);
 }
 #splash #logo
 {
@@ -108,8 +106,8 @@ h1{
 }
 .screens{
     background-image: url('../img/background_checked.gif');
-  transform: translate3d(0,0,0);
-  -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
 }
 .screen{
     position:absolute;

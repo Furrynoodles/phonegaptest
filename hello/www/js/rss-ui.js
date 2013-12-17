@@ -7,6 +7,7 @@ Backbone.sync = function(){};
   var newsItemTemplate = _.template( $( '#news-item-template' ).html() );
   var newsDetailTemplate = _.template( $( '#news-detail-template' ).html() );
 	var dataDefaults = {'title':'', 'link':'', 'pubDate':'', 'description':''};
+  var newItemTemplate = _.template( '<li><h2><%= title %></h2></li>' );
 
   var Feed = Backbone.Model.extend({
     defaults:{
@@ -23,13 +24,13 @@ Backbone.sync = function(){};
 
   var FeedView = Backbone.View.extend({
     initialize: function(){
-      FeedView.template = FeedView.template  || _.template( '<li><h2><%= title %></h2></li>' );
+      //FeedView.template = FeedView.template  || _.template( '<li><h2><%= title %></h2></li>' );
       this.render();
     },
     events: {
     },
     render: function(){
-      this.$el.html( FeedView.template( { "title": "test" } ) );
+      this.$el.html( newItemTemplate( { "title": "test" } ) );
     }
   });
 
