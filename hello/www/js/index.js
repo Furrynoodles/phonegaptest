@@ -35,28 +35,11 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        //app.receivedEvent('deviceready');
-        app.fadeAwaySplash();
         app.addTwitter();
         app.addRss();
     },
-    fadeAwaySplash: function() {
-      setTimeout( function(){ $("#splash").addClass( 'off' ); }, 1 );
-      setTimeout( function(){ $("#splash").hide(); }, 1500 );
-    },
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        //console.log('Received Event: ' + id);
-    },
     addTwitter: function(){
-        //$( '#newsfeed' ).html( 'Loading tweets...' );
         var error = function( msg ){ alert( msg ); }
         twitter.createEvent(app.onTwitterSuccess, error, 'fatman in an overcoat');
     },
@@ -75,8 +58,6 @@ var app = {
         
     },
     addRss: function(){
-      var e = $( '#newsfeed' );
-      //e.html( "Loading RSS..." );
       rss.createEvent( app.onRssSuccess, app.onRssError, 'http://www.bykercommunitytrust.org/rss.xml');
     },
     onRssSuccess: function( data ){
@@ -87,7 +68,6 @@ var app = {
           rssJson[i].id=i;
       }
       ui.rss.render( rssJson );
-      //window.open("http://www.google.com", '_blank', 'location=yes' );
     },
     onRssError: function( msg ){
       alert( msg );
