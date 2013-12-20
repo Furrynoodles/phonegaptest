@@ -1,5 +1,10 @@
 (function(){
 
+  window.ui = window.ui || {};
+  ui.app = {};
+
+  window.ui.app.changeScreen = changeScreen;
+
 	var detailIScroll = new iScroll( 'detail' );
 	var twitterIScroll = new iScroll( 'twitterfeed' );
 

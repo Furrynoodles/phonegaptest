@@ -53,8 +53,8 @@
                     <ul id="menu-items">
                         <li target-screen="newsfeed">News</li>
                         <li target-screen="twitterfeed">Tweets?</li>
-                        <li target-screen="contact-us">Contact us</li>
-                        <li target-screen="about-us">About us</li>
+                        <li target-screen="contact">Contact us</li>
+                        <li target-screen="about">About us</li>
                     </ul>
                 </div>
             </div>
@@ -64,11 +64,27 @@
             </div>
             <div id="screens">
                 <div id="detail" class="screen"><div class="inner"></div></div>
-                <div id="contact" class="screen">Contact form and shit</div>
                 <div id="twitterfeed" class="feed screen"><ul></ul></div>
                 <div id="newsfeed" class="feed screen on"></div>
+                <div id="contact" class="screen"></div>
             </div>
         </div>
+
+        <script id="contact-template" type="text/template">
+          <form class="container">
+            <h1>Contact us</h1>
+            <div>
+              <input type="text" name="name" placeholder="Name" />
+            </div>
+            <div>
+              <input type="email" name="email" placeholder="me@example.com" />
+            </div>
+            <div>
+              <textarea name="message" placeholder="Message"></textarea>
+            </div>
+            <button>Send</button>
+          </form>
+        </script>
 
         <script id="twitter-item-template" type="text/template">
           <li>
@@ -104,6 +120,8 @@
         <script type="text/javascript" src="js/underscore-min.js"></script>
         <script type="text/javascript" src="js/iscroll.js"></script>
         <script type="text/javascript" src="js/backbone.js"></script>
+        <script type="text/javascript">Backbone.sync = function(){};</script>
+        <script type="text/javascript" src="js/contact-ui.js"></script>
         <script type="text/javascript" src="js/app-ui.js"></script>
         <script type="text/javascript" src="js/rss-ui.js"></script>
         <script type="text/javascript" src="js/index.js"></script>

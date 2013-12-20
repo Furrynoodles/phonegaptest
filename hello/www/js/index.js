@@ -55,7 +55,6 @@ var app = {
         for (i = 0; i < twitterJson.length; ++i) {
             container.append( twitterItemTemplate( twitterJson[i] ) );
         }
-        
     },
     addRss: function(){
       rss.createEvent( app.onRssSuccess, app.onRssError, 'http://www.bykercommunitytrust.org/rss.xml');
@@ -81,8 +80,7 @@ function test(){
 
     var theNews = '[{"title":"My Very Long Title Right Here at the Very Top of the Listeroonio", "description":"<p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum.</p><p>Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p><p>Sed molestie augue sit amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies.</p>", "pubDate":"0000-00-00", "link":"my link"}, {"title":"Clarence`s title 2", "description":"My description 2", "pubDate":"0000-00-00", "link":"my link"},{"title":"My title 3", "description":"My description 3", "pubDate":"0000-00-00", "link":"my link"}]'; 
     app.onRssSuccess( theNews );
-    app.fadeAwaySplash();
 
-    
+    ui.app.changeScreen( 'contact' );
 }
 test();

@@ -1,8 +1,6 @@
-var ui = {};
-
-Backbone.sync = function(){};
-
 (function( ui ){
+
+  window.ui = window.ui || {};
 
   var newsItemTemplate = _.template( $( '#news-item-template' ).html() );
   var newsDetailTemplate = _.template( $( '#news-detail-template' ).html() );
